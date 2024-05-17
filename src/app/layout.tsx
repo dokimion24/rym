@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils";
 import "./globals.css";
-import { ThemeProvider } from "@/lib/providers/next-theme-provider";
-import ReactQueryProvider from "@/lib/providers/react-query-provider";
-import Navbar from "@/components/common/navbar";
+import { ThemeProvider } from "@/libs/providers/next-theme-provider";
+import ReactQueryProvider from "@/libs/providers/react-query-provider";
+import Navbar from "@/components/@common/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { koKR } from "@clerk/localizations";
 
