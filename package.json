@@ -16,8 +16,10 @@
     "@tanstack/react-query": "^5.36.2",
     "@tanstack/react-query-devtools": "^5.36.2",
     "@tanstack/react-query-next-experimental": "^5.36.2",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cookies-next": "^4.1.1",
     "dayjs": "^1.11.11",
     "embla-carousel-react": "^8.0.4",
     "lucide-react": "^0.378.0",
@@ -25,6 +27,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "store2": "^2.14.3",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.2"

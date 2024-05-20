@@ -1,9 +1,9 @@
 import React from "react";
 import { reviewData } from "@/constants/review";
-import RecentReviewCard from "./recent-review-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "../ui";
+import NewReviewCard from "./new-review-card";
 
-const RecentReviewSection = () => {
+const NewReviewSection = () => {
   return (
     <section className="my-8">
       <h2 className="text-xl font-bold py-4">최신 코멘트</h2>
@@ -16,7 +16,7 @@ const RecentReviewSection = () => {
         <CarouselContent className="flex gap-4">
           {reviewData.map((review) => (
             <CarouselItem key={review.id}>
-              <RecentReviewCard review={review} />
+              <NewReviewCard review={review} />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -26,4 +26,4 @@ const RecentReviewSection = () => {
   );
 };
 
-export default RecentReviewSection;
+export default NewReviewSection;

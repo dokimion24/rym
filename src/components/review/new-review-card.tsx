@@ -13,11 +13,11 @@ import {
 import StarList from "@/components/@common/star-list";
 import { Review } from "@/constants/review";
 
-interface RecentReviewCardProps {
+interface NewReviewCardProps {
   review: Review;
 }
 
-const RecentReviewCard = ({ review }: RecentReviewCardProps) => {
+const NewReviewCard = ({ review }: NewReviewCardProps) => {
   const { username, title, thumbnail, rating, description, createdAt } = review;
   return (
     <Card>
@@ -35,4 +35,4 @@ const RecentReviewCard = ({ review }: RecentReviewCardProps) => {
   );
 };
 
-export default RecentReviewCard;
+export default NewReviewCard;
