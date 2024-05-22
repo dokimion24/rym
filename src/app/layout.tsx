@@ -5,8 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/libs/providers/next-theme-provider";
 import ReactQueryProvider from "@/libs/providers/react-query-provider";
 import Navbar from "@/components/@common/navbar";
-import { ClerkProvider } from "@clerk/nextjs";
-import { koKR } from "@clerk/localizations";
+import SessionProvider from "@/libs/providers/session-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,7 +30,7 @@ export default function RootLayout({
         )}
       >
         <ReactQueryProvider>
-          <ClerkProvider localization={koKR}>
+          <SessionProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -41,7 +40,7 @@ export default function RootLayout({
               <Navbar />
               {children}
             </ThemeProvider>
-          </ClerkProvider>
+          </SessionProvider>
         </ReactQueryProvider>
       </body>
     </html>
