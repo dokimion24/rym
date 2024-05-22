@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import AuthButton from "../auth/auth-button";
 
 const Navbar = () => {
   return (
@@ -14,8 +15,8 @@ const Navbar = () => {
             </p>
           </Link>
           <nav className="flex gap-2 text-sm">
-            <Link href="/sign-in">로그인</Link>
-            <Link href="/sign-up">회원가입</Link>
+            <AuthButton />
+            {/* <Link href="/join">회원가입</Link> */}
           </nav>
         </header>
       </div>
