@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { reviewData } from "@/constants/review";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "../ui";
-import albumApis from "@/apis/album-apis";
-import authApis from "@/apis/auth-apis";
+import albumApis from "@/apis/albumApis";
+import authApis from "@/apis/authApis";
 
 const NewAlbumSection = () => {
   const [albums, setAlbums] = useState(null);
