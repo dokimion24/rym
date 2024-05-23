@@ -1,9 +1,10 @@
 import axios from "axios";
-import authApis from "./auth-apis";
+import authApis from "./authApis";
 import { setCookie, getCookie } from "cookies-next";
 
 const axiosInstance = axios.create({
   timeout: 3000,
+  baseURL: "http://localhost:3000",
 });
 
 axiosInstance.interceptors.request.use(

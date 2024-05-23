@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import axiosInstance from "./axios-instance";
+import axiosInstance from "./axiosInstance";
 import store from "store2";
 
 const getNewAlbum = async () => {
