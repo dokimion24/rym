@@ -7,10 +7,12 @@ import prisma from "@/libs/prisma";
 
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    async jwt({ token, user }) {
-      return { ...token, ...user };
+    async jwt({ token, account }) {
+      if (account) {
+        token.idToken = account.id_token;
+      }
+      return token;
     },
-
     async session({ session, token }) {
       session.user = token as any;
       return session;
