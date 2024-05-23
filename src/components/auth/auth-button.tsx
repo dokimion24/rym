@@ -3,24 +3,29 @@
 import { Avatar } from "@radix-ui/react-avatar";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { AvatarFallback, AvatarImage } from "../ui";
+import Link from "next/link";
+import LoginModal from "./loginModal";
 
 const AuthButton = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  console.log(session);
 
-  console.log("se", session);
-
-  if (session && session.user) {
+  if (status === "authenticated") {
     return (
-      <div className="flex justify-between">
-        <Avatar className="w-8 h-8 inline-flex mr-2">
-          {/* <AvatarImage src={session.user?.image} alt="proflie-image" /> */}
+      <Link
+        className="flex justify-between items-center gap-2 cursor-pointer"
+        href="/profile"
+      >
+        <Avatar className="w-6 h-6">
+          <AvatarImage src={session.user.picture} alt="profile-image" />
+          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <button onClick={() => signOut()}>{session.user.name}</button>;
-      </div>
+        <p>{session.user.name}</p>
+      </Link>
     );
   }
 
-  return <button onClick={() => signIn()}>로그인</button>;
+  return <LoginModal />;
 };
 
 export default AuthButton;
