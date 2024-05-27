@@ -1,5 +1,4 @@
-import axiosInstance from "@/apis/axiosInstance";
-import { cookies } from "next/headers";
+import axios from "axios";
 
 const params = {
   grant_type: "client_credentials",
@@ -8,21 +7,20 @@ const params = {
 };
 
 export async function POST() {
-  try {
-    const res = await axiosInstance.post(
-      "https://accounts.spotify.com/api/token",
-      new URLSearchParams(params).toString(),
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    );
+  const res = await axios.post(
+    "https://accounts.spotify.com/api/token",
+    new URLSearchParams(params).toString(),
+    {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  );
 
-    cookies().set("spotify-access-token", res.data.access_token);
-
-    return Response.json({ status: 200, data: res.data });
-  } catch (err) {
-    return Response.json({ error: "Internal Server Error" }, { status: 500 });
-  }
+  return new Response("test", {
+    status: 200,
+    headers: {
+      "Set-Cookie": `spotify-access-token=${res.data.access_token}; sameSite=lax; httpOnly=true; maxAge=86400; path=/`,
+    },
+  });
 }
