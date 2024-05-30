@@ -1,4 +1,7 @@
+"use server";
+
 import axios from "axios";
+import { NextResponse } from "next/server";
 
 const params = {
   grant_type: "client_credentials",
@@ -9,18 +12,15 @@ const params = {
 export async function POST() {
   const res = await axios.post(
     "https://accounts.spotify.com/api/token",
-    new URLSearchParams(params).toString(),
-    {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    }
+    new URLSearchParams(params).toString()
   );
 
-  return new Response("test", {
-    status: 200,
-    headers: {
-      "Set-Cookie": `spotify-access-token=${res.data.access_token}; sameSite=lax; httpOnly=true; maxAge=86400; path=/`,
-    },
+  const response = NextResponse.json({ msg: "hello" }, { status: 200 });
+  response.cookies.set("spotify-access-token", res.data.access_token, {
+    httpOnly: true,
+    path: "/",
+    sameSite: "lax",
   });
+
+  return response;
 }
