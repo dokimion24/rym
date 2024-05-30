@@ -1,11 +1,7 @@
 import { AxiosResponse } from "axios";
 import serviceApi from "../config/serviceApi";
 
-const getSpotifyAccessToken = async () => {
-  return await serviceApi.post("/api/spotify-token");
+export const getSpotifyAccessToken = async () => {
+  const res = await serviceApi.post("/api/spotify-token");
+  return res;
 };
-const authApisServer = {
-  getSpotifyAccessToken,
-};
-
-export default authApisServer;
