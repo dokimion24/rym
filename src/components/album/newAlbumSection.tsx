@@ -1,13 +1,12 @@
+"use client";
+
 import albumApis from "@/apis/domain/album.api.server";
 import { Card } from "../ui";
 import Image from "next/image";
 import spotifyApi from "@/apis/config/spotifyApi.server";
 import albumApisServer from "@/apis/domain/album.api.server";
 
-export default async function NewAlbumSection() {
-  // const data = await albumApisServer.getNewAlbum();
-  // console.log(data);
-
+export default function NewAlbumSection() {
   return (
     <section className="my-8">
       <h2 className="text-xl font-bold py-4">최신 발매 앨범</h2>
