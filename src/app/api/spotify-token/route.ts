@@ -15,9 +15,8 @@ export async function POST() {
     new URLSearchParams(params).toString()
   );
 
-  const response = NextResponse.json({ msg: "hello" }, { status: 200 });
+  const response = NextResponse.json({ message: "success" }, { status: 200 });
   response.cookies.set("spotify-access-token", res.data.access_token, {
-    httpOnly: true,
     path: "/",
     sameSite: "lax",
   });
