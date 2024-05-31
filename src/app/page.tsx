@@ -1,5 +1,3 @@
-import { getSpotifyAccessToken } from "@/apis/domain/auth.api.server";
-import AuthWrapper from "@/components/@common/authWrapper";
 import SpotifyToken from "@/components/@common/spotifyToken";
 import NewAlbumSection from "@/components/album/newAlbumSection";
 import NewReviewSection from "@/components/review/new-review-section";
