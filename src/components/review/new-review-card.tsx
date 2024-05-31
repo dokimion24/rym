@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Card,
@@ -20,7 +18,7 @@ interface NewReviewCardProps {
 const NewReviewCard = ({ review }: NewReviewCardProps) => {
   const { username, title, thumbnail, rating, description, createdAt } = review;
   return (
-    <Card>
+    <Card className="p-4">
       <CardTitle className="mb-2">{title}</CardTitle>
       <StarList rating={rating} />
       <CardDescription className="mb-2">{description}</CardDescription>
