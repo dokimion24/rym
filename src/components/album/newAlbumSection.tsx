@@ -1,26 +1,38 @@
 "use client";
 
-import albumApis from "@/apis/domain/album.api.server";
-import { Card } from "../ui";
-import Image from "next/image";
-import spotifyApi from "@/apis/config/spotifyApi.server";
-import albumApisServer from "@/apis/domain/album.api.server";
+import { useGetNewAlbum } from "@/apis/domain/album.api.client";
+import {
+  Card,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+} from "../ui";
+import NewAlbumCard from "./newAlbumCard";
 
 export default function NewAlbumSection() {
+  const { data: albumList } = useGetNewAlbum();
+
+  console.log(albumList);
   return (
     <section className="my-8">
       <h2 className="text-xl font-bold py-4">최신 발매 앨범</h2>
-      {/* <Card>
-        <Image src={} />
-        <CardDescription className="mb-2">{description}</CardDescription>
-        <CardFooter className="flex items-center">
-          <Avatar className="w-8 h-8 inline-flex mr-2">
-            <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <CardDescription>{username}</CardDescription>
-        </CardFooter>
-      </Card> */}
+
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+      >
+        <CarouselContent className="flex gap-4">
+          {albumList?.map((album) => (
+            <CarouselItem key={album.id} className="basis-[20%]">
+              <NewAlbumCard album={album} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselNext />
+      </Carousel>
     </section>
   );
 }
