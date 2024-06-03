@@ -1,6 +1,6 @@
 import SpotifyToken from "@/components/@common/spotifyToken";
 import NewAlbumSection from "@/components/album/newAlbumSection";
-import NewReviewSection from "@/components/review/new-review-section";
+import NewReviewSection from "@/components/review/newReviewSection";
 
 export default async function Home() {
   return (
