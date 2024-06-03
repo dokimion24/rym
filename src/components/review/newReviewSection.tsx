@@ -1,7 +1,7 @@
 import React from "react";
 import { reviewData } from "@/constants/review";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext } from "../ui";
-import NewReviewCard from "./new-review-card";
+import NewReviewCard from "./newReviewCard";
 
 const NewReviewSection = () => {
   return (

@@ -8,7 +8,7 @@ import {
   AvatarImage,
   AvatarFallback,
 } from "@/components/ui";
-import StarList from "@/components/@common/star-list";
+import StarList from "@/components/@common/starList";
 import { Review } from "@/constants/review";
 
 interface NewReviewCardProps {
